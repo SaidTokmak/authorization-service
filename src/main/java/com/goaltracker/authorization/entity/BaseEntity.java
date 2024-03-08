@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
 
 import java.util.Date;
 
@@ -24,6 +26,11 @@ public abstract class BaseEntity {
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
     private Date createdAt;
+
+    @CreatedBy
+    private String createdUserIp;
+
+    private String createdName;
 
     @Override
     public int hashCode() {
